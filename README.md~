@@ -1,0 +1,38 @@
+# 0x00. AirBnB clone - The console
+![logo](AirBnBlogo.png)
+
+## DESCRIPTION OF THE PROJECT - AirBnB Clone
+The goal of the project is to deploy on our server a simple copy of the [AirBnB website](https://www.airbnb.com/). This platform allows the booking and hosting of shortlet apartments seamless for Unique stays, Experiences, Adventures, and more.
+
+## DESCRIPTION OF THE PROJECT - AirBnB Clone
+
+Our command interpreter allow us manage the objects of our project:
+
+* Create a new object (ex: a new User or a new Place)
+* Retrieve an object from a file, a database etc…
+* Do operations on objects (count, compute stats, etc…)
+* Update attributes of an object
+* Destroy an object
+
+## PROJECT OJECTIVES
+
+* How to create a Python package
+* How to create a command interpreter in Python using the cmd module
+* What is Unit testing and how to implement it in a large project
+* How to serialize and deserialize a Class
+* How to write and read a JSON file
+* How to manage datetime
+* What is an UUID
+* What is *args and how to use it
+* What is **kwargs and how to use it
+* How to handle named arguments in a function
+
+## Steps:
+
+* Put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
+* Create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
+* Create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
+
+create the first abstracted storage engine of the project: File storage.
+
+create all unittests to validate all our classes and storage engine
