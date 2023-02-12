@@ -62,5 +62,5 @@ class FileStorage:
                 json_load = json.load(file)
             for k, v in json_load.items():
                 FileStorage.__objects[k] = BaseModel(**v)
-        except exception:
+        except except:
             pass
