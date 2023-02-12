@@ -25,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
     Custom console class
     """
     prompt = '(hbnb) '
-
+    
     def my_errors(self, line, num_of_args):
         """Displays error messages to user
         Args:
@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
                "** class doesn't exist **",
                "** instance id missing **",
                "** no instance found **",
-               "** attribute name missing **",
+               "** attribute name missing **",           
                "** value missing **"]
         if not line:
             print(msg[0])
@@ -147,7 +147,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, line):
         """Shows all instances, or instances of a certain class
-        Args:
+        Args: 
             line(args): enter with command (optional): <class name>
             Example: 'all' OR 'all User'
         """
@@ -244,11 +244,10 @@ class HBNBCommand(cmd.Cmd):
                 for k, v in dic_p.items():
                     commands[args[1]](args[0] + " " + params.groups()[0] +
                                       " " + k + " " + str(v))
-            else:
+                else:
                 rest = params.groups()[1].split(", ")
                 commands[args[1]](args[0] + " " + params.groups()[0] + " " +
                                   rest[0] + " " + rest[1])
-
 
 if __name__ == '__main__':
     cli = HBNBCommand()
