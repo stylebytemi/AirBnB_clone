@@ -6,6 +6,8 @@ Custom base class for the entire project
 from uuid import uuid4
 from datetime import datetime
 import models
+
+
 class BaseModel:
     """
     base_model that defines all common attributes/methods for other classes
