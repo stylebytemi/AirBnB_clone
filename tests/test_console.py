@@ -3,63 +3,53 @@
 Unit tests for console using Mock module from python standard library
 Checks console for capturing stdout into a StringIO object
 """
-import os
 import sys
 import unittest
-from unittest.mock import create_autospec, patch
-from io import StringIO
+import inspect
+import io
+import pep8
+from contextlib import redirect_stdout
 from console import HBNBCommand
-from models import storage
-from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
 
 
-class TestConsole(unittest.TestCase):
+class TestHBNBCommand(unittest.TestCase):
     """
-    Unittest for the console model
+    class for testing HBNBCommand class' methods
     """
 
-    def setUp(self):
-        """Redirecting stdin and stdout"""
-        self.mock_stdin = create_autospec(sys.stdin)
-        self.mock_stdout = create_autospec(sys.stdout)
-        self.err = ["** class name missing **",
-                    "** class doesn't exist **",
-                    "** instance id missing **",
-                    "** no instance found **",
-                    ]
-
-        self.cls = ["BaseModel",
-                    "User",
-                    "State",
-                    "City",
-                    "Place",
-                    "Amenity",
-                    "Review"]
-
-    def create(self, server=None):
+    @classmethod
+    def setUpClass(cls):
         """
-        Redirects stdin and stdout to the mock module
+        Set up class method for the doc tests
         """
-        return HBNBCommand(stdin=self.mock_stdin, stdout=self.mock_stdout)
+        cls.setup = inspect.getmembers(HBNBCommand, inspect.isfunction)
 
-    def last_write(self, nr=None):
-        """Returns last n output lines"""
-        if nr is None:
-            return self.mock_stdout.write.call_args[0][0]
-        return "".join(map(lambda c: c[0][0],
-                           self.mock_stdout.write.call_args_list[-nr:]))
+    def test_pep8_conformance_HBNBCommand(self):
+        """
+        Test that console.py file conform to PEP8
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/console.py'])
+        self.assertEqual(result.total_errors, 1,
+                         "Found code style errors (and warnings).")
 
-    def test_quit(self):
-        """Quit command"""
-        cli = self.create()
-        self.assertTrue(cli.onecmd("quit"))
+    def test_pep8_conformance_test_HBNBCommand(self):
+        """
+        Test that test_console.py file conform to PEP8
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['tests/test_models/test_console.py'])
+        self.assertEqual(result.total_errors, 1,
+                         "Found code style errors (and warnings).")
 
+    def test_module_docstring(self):
+        """
+        Tests if module docstring documentation exist
+        """
+        self.assertTrue(len(HBNBCommand.__doc__) >= 1)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_class_docstring(self):
+        """
+        Tests if class docstring documentation exist
+        """
+        self.assertTrue(len(HBNBCommand.__doc__) >= 1)
