@@ -17,6 +17,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+  /* height: 40%;
+  width: 42%; */
 }
 .places h1 {
 	font-size: 30px;
@@ -43,7 +45,8 @@
 	min-width: 60px;
 	height: 60px;
 	font-size: 30px;
-	margin-left: 320px;
+	margin-left: 300px;
+  margin-bottom: 220px;
 }
 .price_by_night p{
 	margin: 0;
