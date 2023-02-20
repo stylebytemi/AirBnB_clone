@@ -2,9 +2,9 @@ body {
 	margin: 0px;
 	padding: 0px;
 }
-.centered_footer {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.centerlize_footer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
